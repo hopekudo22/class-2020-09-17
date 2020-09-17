@@ -1,6 +1,6 @@
 ---
 title: "Week 2"
-author: "David Kane"
+author: "Hope Kudo"
 output: html_document
 ---
 
@@ -21,7 +21,14 @@ knitr::opts_chunk$set(echo = TRUE)
 
 Once you have finished cleaning your data, figure out the course with the highest enrollment. And figure out how many students are enrolled in Gov 50. If you get a number much lower than 151, you have done something wrong . . .
 
+```{r setup, include=FALSE}
+library(readxl)
+en_fall_2020 <- read_excel("raw_data/class_enrollment_summary_by_term_9-17-2020.xlsx", skip = 3) %>%
+  clean_names() %>%
+  filter(!is.na(course_name), "u_grad">=10)
 
+summary(raw)
+```
 
 
 ### Scene 2
